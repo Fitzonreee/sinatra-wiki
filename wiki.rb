@@ -35,6 +35,10 @@ get "/:title" do
   erb :show
 end
 
+# {"title"=>"Title", "content"=>"Content"}
 post "/create" do
-  
+  # params.inspect
+  @title = params["title"].sub!(" ","-")
+  save_content(@title, params["content"])
+  redirect "/#{@title}"
 end
