@@ -10,6 +10,10 @@ get "/kevin" do
   "Yo Kev, what's goody?"
 end
 
+get "/:title" do
+  page_content(params[:title])
+end
+
 # get content of .txt in pages directory and convert to string
 def page_content(title)
   File.read("pages/#{title}.txt")
