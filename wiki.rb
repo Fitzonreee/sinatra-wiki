@@ -11,7 +11,10 @@ get "/kevin" do
 end
 
 get "/:title" do
-  page_content(params[:title])
+  @title = params[:title]
+  @content = page_content(@title)
+  @title.sub!("-"," ")
+  erb :show
 end
 
 # get content of .txt in pages directory and convert to string
@@ -22,4 +25,4 @@ rescue Errno::ENOENT
 end
 
 # run method and pass filename
-puts page_content("Kevin_Fitzhenry")
+puts page_content("Kevin-Fitzhenry")
