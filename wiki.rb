@@ -24,5 +24,13 @@ rescue Errno::ENOENT
   return nil
 end
 
+def save_content(title, content)
+  File.open("pages/#{title}.txt", "w") do |file|
+    file.print(content)
+  end
+end
+
 # run method and pass filename
 puts page_content("Kevin-Fitzhenry")
+# save arguements as .txt file
+save_content("Ryan-Fitzhenry", "Videograpther and also, the man.")
