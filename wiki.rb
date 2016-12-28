@@ -13,6 +13,10 @@ def save_content(title, content)
   end
 end
 
+def delete_content(title)
+  File.delete("pages/#{title}.txt")
+end
+
 # run method and pass filename
 # puts page_content("Kevin-Fitzhenry")
 # save arguements as .txt file
@@ -53,4 +57,9 @@ put "/update/:title" do
   @title = params["title"].sub!(" ","-")
   save_content(@title, params["content"])
   redirect "/#{params["title"]}"
+end
+
+delete "/delete/:title" do
+  delete_content(params[:title])
+  redirect "/"
 end
