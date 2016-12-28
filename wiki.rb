@@ -42,3 +42,15 @@ post "/create" do
   save_content(@title, params["content"])
   redirect "/#{@title}"
 end
+
+get "/edit/:title" do
+  @title = params[:title]
+  @content = page_content(@title)
+  erb :edit
+end
+
+put "/update/:title" do
+  @title = params["title"].sub!(" ","-")
+  save_content(@title, params["content"])
+  redirect "/#{params["title"]}"
+end

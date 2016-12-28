@@ -1,2 +1,6 @@
 <h1><%= @title %></h1>
 <p><%= @content %></p>
+
+<div>
+  <a href="edit/<%= @title.sub!(" ","-") %>">Edit this Page</a>
+</div>

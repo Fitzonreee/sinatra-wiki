@@ -1,0 +1,12 @@
+<h1>Edit this Post: <%= @title.sub!("-"," ") %></h1>
+<form action="/update/<%= @title %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <div>
+    <label for="content" style="display:block">Content</label>
+    <textarea name="content" rows="20" cols="80" style="display:block; resize: none;"><%= @content %></textarea>
+  </div>
+  <br>
+  <div>
+    <input type="submit" name="" value="Update Post">
+  </div>
+</form>
